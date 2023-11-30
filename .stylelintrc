@@ -1,0 +1,19 @@
+{
+  "extends": ["stylelint-config-standard", "stylelint-config-rational-order"],
+  "plugins": ["stylelint-order", "stylelint-config-rational-order/plugin"],
+  "ignoreFiles": ["**/node_modules/**"],
+  "rules": {
+    "no-descending-specificity": null,
+    "keyframes-name-pattern": null,
+    "plugin/rational-order": [
+      true,
+      {
+        "border-in-box-model": false,
+        "empty-line-between-groups": false
+      }
+    ],
+    "property-no-vendor-prefix": null,
+    "selector-class-pattern": null,
+    "string-quotes": "single"
+  }
+}

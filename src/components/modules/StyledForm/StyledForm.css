@@ -1,0 +1,52 @@
+.styled-form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  max-width: 100%;
+  padding: 40px 30px;
+  background: #fff;
+  border: 1px solid #cb9;
+  border-radius: 4px;
+  box-shadow: 2px 2px 4px #2112;
+}
+
+.styled-form input {
+  width: 100%;
+  padding: 16px 10px;
+  font-size: 16px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  border: 1px solid #cb9;
+  border-radius: 4px;
+}
+
+.styled-form label {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.styled-form label input {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+  min-height: 16px;
+  margin: auto 10px;
+}
+
+.styled-form span {
+  text-align: center;
+}
+
+.styled-form a {
+  color: #211;
+}
+
+@media (width < 430px) {
+  .styled-form {
+    padding: 40px 16px;
+  }
+}

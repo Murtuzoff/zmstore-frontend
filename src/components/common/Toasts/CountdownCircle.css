@@ -1,0 +1,53 @@
+.countdown-circle {
+  position: relative;
+  width: 26px;
+  height: 26px;
+}
+
+.countdown-circle svg {
+  width: inherit;
+  height: inherit;
+  transform: rotateZ(-90deg);
+}
+
+.countdown-circle circle {
+  fill: none;
+  stroke: #fff;
+  stroke-dasharray: 63;
+  stroke-dashoffset: 63;
+  stroke-linecap: butt;
+  stroke-width: 2px;
+}
+
+.countdown-circle button {
+  position: absolute;
+  top: 4px;
+  right: 0;
+  left: 0;
+  width: inherit;
+  padding: 0;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.countdown-circle:active circle,
+.countdown-circle:active button {
+  filter: drop-shadow(0 0 1px #fffa);
+}
+
+@keyframes countdown {
+  from {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: 63;
+  }
+}

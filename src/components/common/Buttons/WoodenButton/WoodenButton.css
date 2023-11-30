@@ -1,0 +1,27 @@
+.wooden-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  box-shadow: 2px 2px 4px #2112;
+  cursor: pointer;
+}
+
+.wooden-button:active {
+  filter: drop-shadow(0 0 2px #211a);
+}
+
+.wooden-button > span {
+  position: relative;
+  color: #fea;
+  font-weight: bold;
+  filter: drop-shadow(0 0 8px #211);
+}
+
+.wooden-button:active > span {
+  filter: drop-shadow(0 0 2px #fea4);
+}

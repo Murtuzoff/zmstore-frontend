@@ -1,0 +1,14 @@
+.payment {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  width: 1000px;
+  padding: 30px 20px;
+}
+
+@media (width < 430px) {
+  .payment {
+    padding: 30px 10px;
+  }
+}

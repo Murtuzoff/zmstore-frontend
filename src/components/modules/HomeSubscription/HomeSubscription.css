@@ -1,0 +1,97 @@
+.home-subscription {
+  position: relative;
+  width: inherit;
+  max-width: inherit;
+  height: 180px;
+  overflow: hidden;
+  box-shadow: 2px 2px 4px #2112;
+}
+
+#home-subscription {
+  position: absolute;
+  top: -60px;
+  visibility: hidden;
+}
+
+.home-subscription-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: inherit;
+  max-width: inherit;
+  height: inherit;
+  padding: 20px 30px 10px;
+  color: #fea;
+  font-size: 18px;
+  text-align: center;
+}
+
+.home-subscription span {
+  filter: drop-shadow(0 0 8px #211);
+}
+
+.home-subscription form {
+  display: flex;
+  width: 400px;
+  max-width: 90vw;
+  height: 44px;
+  background: #2114;
+  border: 2px solid #fea;
+  border-radius: 36px;
+  filter: drop-shadow(0 0 8px #211);
+}
+
+.home-subscription input {
+  width: 100%;
+  height: min-content;
+  margin: auto;
+  color: #fea;
+  font-size: medium;
+  text-align: end;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.home-subscription input::placeholder {
+  position: relative;
+  left: 20px;
+  width: calc(100% - 26px);
+}
+
+.home-subscription input::-webkit-textfield-decoration-container {
+  position: relative;
+  left: 20px;
+  width: calc(100% - 26px);
+}
+
+.home-subscription input::-webkit-search-cancel-button {
+  position: absolute;
+  left: -16px;
+}
+
+.home-subscription input:-webkit-autofill,
+.home-subscription input:-webkit-autofill:focus,
+.home-subscription input:-webkit-autofill:active {
+  -webkit-background-clip: text;
+  box-shadow: inset 0 0 20px 20px #3220;
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: #fea;
+}
+
+.home-subscription button {
+  height: inherit;
+  margin: -2px;
+  padding: 10px;
+  color: #fea;
+  background: none;
+  border: 2px solid #fea;
+  border-radius: 36px;
+  cursor: pointer;
+}
+
+.home-subscription button:active {
+  filter: drop-shadow(0 0 4px #feaa);
+}

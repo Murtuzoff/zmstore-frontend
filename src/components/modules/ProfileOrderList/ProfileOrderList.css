@@ -1,0 +1,46 @@
+.profile-orderlist {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.profile-orderlist button {
+  margin: auto;
+}
+
+.profile-orderlist table {
+  width: 630px;
+  min-width: 630px;
+  margin: auto;
+  overflow: hidden;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #ba8;
+  border-radius: 4px;
+  box-shadow: 2px 2px 4px #2112;
+}
+
+.profile-orderlist th {
+  height: 30px;
+  border-right: 1px solid #ba8;
+}
+
+.profile-orderlist td {
+  height: 30px;
+  border-top: 1px solid #ba8;
+  border-right: 1px solid #ba8;
+}
+
+.profile-orderlist td a {
+  text-decoration: underline;
+}
+
+.profile-orderlist .th-last,
+.profile-orderlist .td-last {
+  border-right: none;
+}
+
+@media (width < 720px) {
+  .profile-orderlist {
+    width: calc(100vw - 40px);
+  }
+}

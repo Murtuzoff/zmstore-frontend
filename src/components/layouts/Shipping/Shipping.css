@@ -1,0 +1,14 @@
+.shipping {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  width: 1000px;
+  padding: 30px 20px;
+}
+
+@media (width < 430px) {
+  .shipping {
+    padding: 30px 10px;
+  }
+}

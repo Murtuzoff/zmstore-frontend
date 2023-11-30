@@ -1,0 +1,34 @@
+.home-pagination {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  align-self: stretch;
+  justify-content: center;
+  padding: 0 30px;
+}
+
+.home-pagination span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 65px;
+  height: 38px;
+  color: #544;
+  background: #fea;
+  border: 1px solid #ba8;
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.home-pagination span.page-active {
+  color: #211;
+  font-weight: bold;
+  border: 1px solid #a97;
+  box-shadow: 0 0 3px #875;
+}
+
+.home-pagination span:active {
+  border: 1px solid #a97;
+  box-shadow: 0 0 4px #875;
+}

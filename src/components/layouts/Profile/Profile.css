@@ -1,0 +1,103 @@
+.profile {
+  display: flex;
+  gap: 30px;
+  justify-content: flex-start;
+  width: 1000px;
+  padding: 30px 20px;
+}
+
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: min-content;
+}
+
+.profile-card-header {
+  position: relative;
+  width: inherit;
+  max-width: inherit;
+  height: 100px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 4px #2112;
+}
+
+.profile-card-header-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: inherit;
+  max-width: inherit;
+  height: inherit;
+  padding: 10px;
+  color: #fea;
+  border-radius: inherit;
+}
+
+.profile-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.profile-card-username {
+  width: 200px;
+  overflow: hidden;
+  font-size: 19px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.profile-card-reglabel {
+  font-size: 14px;
+}
+
+.profile-card .rounded-icon,
+.profile-card .rounded-icon:active {
+  filter: initial;
+}
+
+.profile-card span {
+  filter: drop-shadow(0 0 8px #211);
+}
+
+.profile-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: inherit;
+  max-width: inherit;
+}
+
+@media (width < 1000px) {
+  .profile {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-card {
+    flex-direction: row;
+    gap: 24px;
+  }
+}
+
+@media (width < 720px) {
+  .profile-card {
+    flex-direction: column;
+    gap: 2px;
+    width: 300px;
+    max-width: calc(100vw - 40px);
+  }
+}
+
+@media (width < 340px) {
+  .profile-card-username {
+    width: 54vw;
+  }
+}

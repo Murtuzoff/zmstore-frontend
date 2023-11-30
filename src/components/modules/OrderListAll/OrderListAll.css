@@ -1,0 +1,46 @@
+.orderlist-all {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.orderlist-all button {
+  margin: auto;
+}
+
+.orderlist-all table {
+  width: 630px;
+  min-width: 630px;
+  margin: auto;
+  overflow: hidden;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #ba8;
+  border-radius: 4px;
+  box-shadow: 2px 2px 4px #2112;
+}
+
+.orderlist-all th {
+  height: 30px;
+  border-right: 1px solid #ba8;
+}
+
+.orderlist-all td {
+  height: 30px;
+  border-top: 1px solid #ba8;
+  border-right: 1px solid #ba8;
+}
+
+.orderlist-all td a {
+  text-decoration: underline;
+}
+
+.orderlist-all .th-last,
+.orderlist-all .td-last {
+  border-right: none;
+}
+
+@media (width < 720px) {
+  .orderlist-all {
+    width: calc(100vw - 40px);
+  }
+}

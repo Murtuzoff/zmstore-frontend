@@ -1,0 +1,41 @@
+.remove-button {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20.6px;
+  height: 20.6px;
+  background: #f43;
+  border: none;
+  border-radius: 22px;
+  outline: none;
+}
+
+.remove-button:active {
+  filter: drop-shadow(0 0 2px #f43a);
+}
+
+.remove-button .first-line {
+  position: absolute;
+  top: 3px;
+  left: 9px;
+  width: 3px;
+  height: 15px;
+  background: #fff;
+  transform: rotate(-45deg);
+}
+
+.remove-button .second-line {
+  position: absolute;
+  top: 3px;
+  left: 9px;
+  width: 3px;
+  height: 15px;
+  background: #fff;
+  transform: rotate(45deg);
+}
+
+.remove-button:active .first-line,
+.remove-button:active .second-line {
+  filter: drop-shadow(0 0 2px #fffa);
+}

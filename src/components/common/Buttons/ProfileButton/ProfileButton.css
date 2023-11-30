@@ -1,0 +1,21 @@
+.profile-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: inherit;
+  max-width: inherit;
+  height: 50px;
+  padding: 0 10px;
+  border: 1px solid #cb9;
+  border-radius: 4px;
+  box-shadow: 2px 2px 4px #2112;
+}
+
+.profile-button:active {
+  box-shadow: 2px 2px 8px #2114;
+  cursor: pointer;
+}
+
+.profile-button:active strong {
+  filter: drop-shadow(0 0 12px #5444);
+}

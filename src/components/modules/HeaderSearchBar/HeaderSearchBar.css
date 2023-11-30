@@ -1,0 +1,110 @@
+.header-search-bar {
+  filter: drop-shadow(0 0 8px #211);
+}
+
+.header-search-bar form {
+  display: flex;
+  width: 200px;
+  height: 36px;
+  background: #2114;
+  border: 2px solid #fea;
+  border-radius: 36px;
+}
+
+.header-search-bar button {
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: 36px;
+  outline: 0;
+}
+
+.header-search-bar button[type='button'] {
+  display: none !important;
+}
+
+.header-search-bar input {
+  width: 100%;
+  height: min-content;
+  margin: auto;
+  color: #fea;
+  font-size: medium;
+  text-align: end;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.header-search-bar input::placeholder {
+  position: relative;
+  left: 20px;
+  width: calc(100% - 26px);
+}
+
+.header-search-bar input::-webkit-textfield-decoration-container {
+  position: relative;
+  left: 20px;
+  width: calc(100% - 26px);
+}
+
+.header-search-bar input::-webkit-search-cancel-button {
+  position: absolute;
+  left: -16px;
+}
+
+.header-search-bar input:-webkit-autofill,
+.header-search-bar input:-webkit-autofill:focus,
+.header-search-bar input:-webkit-autofill:active {
+  -webkit-background-clip: text;
+  box-shadow: inset 0 0 20px 20px #3220;
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: #fea;
+}
+
+.header-search-bar .rounded-icon {
+  margin: -2px;
+  background: initial;
+  filter: initial;
+}
+
+.header-search-bar .rounded-icon:active {
+  filter: drop-shadow(0 0 4px #feaa);
+}
+
+@media (width < 430px) {
+  .header-search-bar {
+    z-index: 1;
+  }
+
+  .header-search-bar form {
+    display: none;
+  }
+
+  .header-search-bar button[type='button'] {
+    display: block !important;
+  }
+
+  .header-search-bar form:active,
+  .header-search-bar form:has(input:focus),
+  .header-search-bar button[type='button']:focus ~ form {
+    position: absolute;
+    top: 0;
+    right: -102px;
+    display: flex;
+    width: calc(100vw - 8px);
+    margin: -2px;
+    background: #211;
+    transform: translateY(-100%);
+    animation: search 0.2s forwards;
+  }
+
+  @keyframes search {
+    0% {
+      transform: translateY(-100%);
+    }
+
+    100% {
+      transform: translateY(0);
+    }
+  }
+}

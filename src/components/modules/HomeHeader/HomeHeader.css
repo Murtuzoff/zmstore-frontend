@@ -1,0 +1,36 @@
+.home-header {
+  position: relative;
+  width: inherit;
+  max-width: inherit;
+  height: 180px;
+  overflow: hidden;
+  box-shadow: 2px 2px 4px #2112;
+}
+
+.home-header-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: inherit;
+  max-width: inherit;
+  height: inherit;
+  color: #fea;
+}
+
+.home-header-logo {
+  display: flex;
+  flex: 1 0 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-header-logo.left svg {
+  fill: #fea;
+}
+
+@media (width < 677px) {
+  .home-header-logo.right {
+    display: none;
+  }
+}

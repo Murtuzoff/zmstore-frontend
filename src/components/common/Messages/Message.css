@@ -1,0 +1,45 @@
+.message-danger,
+.message-success {
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  justify-content: center;
+  min-height: 40px;
+  padding: 4px;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.message-danger {
+  background: #e32;
+}
+
+.message-success {
+  background: #4a4;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.loading-circle {
+  width: 48px;
+  height: 48px;
+  border: 4px solid #544;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  animation: spin 1.4s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

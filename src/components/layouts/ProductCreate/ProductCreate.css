@@ -1,0 +1,234 @@
+.product-create {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  width: 1000px;
+  padding: 30px 0;
+}
+
+.product-create-name {
+  display: flex;
+  justify-content: center;
+  width: inherit;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+}
+
+.product-create-name input {
+  width: inherit;
+  padding: 2px;
+  color: #211;
+  font-weight: bold;
+  font-size: 20px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  text-align: right;
+  text-align: center;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 2px 2px 4px #2112;
+}
+
+/* stylelint-disable-next-line selector-no-vendor-prefix */
+.product-create-name input::-webkit-input-placeholder {
+  color: #aaa;
+  font-weight: normal;
+}
+
+/* stylelint-disable-next-line selector-no-vendor-prefix */
+.product-create-name input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.product-create-data {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-create-image {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 450px;
+  height: 450px;
+}
+
+.product-create-image .edit-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.product-create-image img {
+  width: inherit;
+  height: inherit;
+}
+
+.product-create-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  width: 450px;
+}
+
+.product-create-detail table {
+  width: inherit;
+  font-weight: bold;
+  border: 1px solid #ba8;
+  border-radius: 4px;
+  box-shadow: 2px 2px 4px #2112;
+}
+
+.product-create-detail td:not(.td-last) {
+  border-bottom: 1px solid #ba8;
+}
+
+.product-create-detail .td-left {
+  height: 60px;
+  padding-left: 20px;
+  text-align: left;
+}
+
+.product-create-detail .td-right {
+  height: 60px;
+  padding-right: 20px;
+  text-align: right;
+}
+
+.product-create-detail input {
+  width: 90px;
+  padding: 2px;
+  color: #211;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  text-align: right;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 2px 2px 4px #2112;
+}
+
+.product-create-description {
+  display: flex;
+  text-align: center;
+}
+
+.product-create-description textarea {
+  align-self: stretch;
+  width: 830px;
+  height: 160px;
+  padding: 8px;
+  color: #211;
+  font-size: 16px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  text-align: center;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 2px 2px 4px #2112;
+  resize: none;
+}
+
+/* stylelint-disable-next-line selector-no-vendor-prefix */
+.product-create-description textarea::-webkit-input-placeholder {
+  color: #aaa;
+  font-weight: normal;
+}
+
+/* stylelint-disable-next-line selector-no-vendor-prefix */
+.product-create-description textarea:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.product-create-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+
+.product-create-buttons div {
+  display: flex;
+  gap: 30px;
+}
+
+@media (width < 1060px) {
+  .product-create {
+    width: 830px;
+  }
+
+  .product-create-data {
+    gap: 30px;
+  }
+
+  .product-create-image {
+    width: 400px;
+    height: 400px;
+  }
+
+  .product-create-detail {
+    width: 400px;
+  }
+}
+
+@media (width < 900px) {
+  .product-create {
+    width: 84vw;
+  }
+
+  .product-create-data {
+    flex-direction: column;
+  }
+
+  .product-create-image {
+    width: 450px;
+    height: 450px;
+  }
+
+  .product-create-detail {
+    width: 450px;
+  }
+
+  .product-create-description {
+    flex-direction: column-reverse;
+    align-items: flex-end;
+  }
+
+  .product-create-description textarea {
+    width: 450px;
+  }
+
+  .product-create-buttons div {
+    flex-direction: column;
+  }
+}
+
+@media (width < 670px) {
+  .product-create-buttons {
+    flex-direction: column;
+    max-width: 100%;
+  }
+}
+
+@media (width < 530px) {
+  .product-create-image {
+    width: 84vw;
+    height: 84vw;
+  }
+
+  .product-create-detail {
+    width: 84vw;
+  }
+
+  .product-create-description textarea {
+    width: 84vw;
+  }
+}

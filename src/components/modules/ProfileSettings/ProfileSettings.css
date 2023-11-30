@@ -1,0 +1,37 @@
+.profile-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  height: min-content;
+}
+
+.profile-settings-section {
+  display: flex;
+  gap: 24px;
+}
+
+.profile-settings input {
+  width: 300px;
+  padding: 16px 10px;
+  font-size: 16px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  border: 1px solid #cb9;
+  border-radius: 4px;
+  box-shadow: 2px 2px 4px #2112;
+}
+
+@media (width < 720px) {
+  .profile-settings {
+    max-width: calc(100vw - 40px);
+  }
+
+  .profile-settings-section {
+    flex-direction: column;
+  }
+
+  .profile-settings input {
+    max-width: calc(100vw - 40px);
+  }
+}
