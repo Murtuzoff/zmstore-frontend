@@ -33,56 +33,65 @@ const OrderProduct = ({ product, inOrder }) => {
   };
 
   return (
-    <div className="cart-product">
-      <div className="cart-product-left">
-        <div className="cart-product-image">
-          <ProductImage
-            src={product.image}
-            alt={product.name}
-            width={!inOrder ? '160px' : '100px'}
-            height={!inOrder ? '160px' : '100px'}
-            borderRadius="8px"
+    product.quantity > 0 && (
+      <div className="cart-product">
+        <div className="cart-product-left">
+          <div className="cart-product-image">
+            <ProductImage
+              src={product.image}
+              alt={product.name}
+              width={!inOrder ? '160px' : '100px'}
+              height={!inOrder ? '160px' : '100px'}
+              borderRadius="8px"
+            />
+          </div>
+
+          <div className="cart-product-name">
+            <strong>{product.name}</strong>
+          </div>
+        </div>
+
+        <div className="cart-product-right">
+          <div className="cart-product-quantity">
+            <span>КОЛИЧЕСТВО:</span>
+
+            {!inOrder ? (
+              <select
+                value={product.quantity}
+                onChange={productQuantityHandler}
+              >
+                {[...Array(product.countInStock).keys()].map((_, index) => {
+                  const value = index + 1;
+
+                  return (
+                    <option key={value} value={value}>
+                      {value}
+                    </option>
+                  );
+                })}
+              </select>
+            ) : (
+              <strong>{product.quantity}</strong>
+            )}
+          </div>
+
+          <div className="cart-product-price">
+            <span>ЦЕНА:</span>
+
+            <strong>
+              <span>{product.price}</span> <span>₽</span>
+            </strong>
+          </div>
+        </div>
+        {!inOrder && (
+          <RemoveButton
+            top="-8px"
+            right="-8px"
+            onClick={productRemoveHandler}
           />
-        </div>
-
-        <div className="cart-product-name">
-          <strong>{product.name}</strong>
-        </div>
+        )}
       </div>
-
-      <div className="cart-product-right">
-        <div className="cart-product-quantity">
-          <span>КОЛИЧЕСТВО:</span>
-
-          {!inOrder ? (
-            <select value={product.quantity} onChange={productQuantityHandler}>
-              {[...Array(product.countInStock).keys()].map((_, index) => {
-                const value = index + 1;
-
-                return (
-                  <option key={value} value={value}>
-                    {value}
-                  </option>
-                );
-              })}
-            </select>
-          ) : (
-            <strong>{product.quantity}</strong>
-          )}
-        </div>
-
-        <div className="cart-product-price">
-          <span>ЦЕНА:</span>
-
-          <strong>
-            <span>{product.price}</span> <span>₽</span>
-          </strong>
-        </div>
-      </div>
-      {!inOrder && (
-        <RemoveButton top="-8px" right="-8px" onClick={productRemoveHandler} />
-      )}
-    </div>
+    )
   );
 };
 

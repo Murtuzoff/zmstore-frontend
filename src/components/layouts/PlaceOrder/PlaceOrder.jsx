@@ -39,7 +39,7 @@ const PlaceOrder = () => {
       .reduce((acc, product) => acc + product.quantity * product.price, 0)
       .toFixed(2),
   );
-  const shippingPrice = 300;
+  const shippingPrice = itemsPrice === 0 && itemsPrice > 2000 ? 0 : 300;
   const totalPrice = itemsPrice + shippingPrice;
 
   const dispatch = useDispatch();

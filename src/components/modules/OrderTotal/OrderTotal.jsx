@@ -91,7 +91,7 @@ const OrderTotal = ({
         <>
           {!isPaid && loading && <Loading />}
           {!isPaid && error && <MessageDanger message={error} />}
-          {!isPaid && (
+          {!isPaid && itemsPrice > 0 && (
             <PayPalScriptProvider options={{ 'client-id': clientId, currency }}>
               <PayPalButtons
                 createOrder={() => createOrder({ totalPrice, currency })}
