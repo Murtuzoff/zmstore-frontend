@@ -39,16 +39,23 @@ export const orderDetailsAction = createAsyncThunk(
 export const orderCreateAction = createAsyncThunk(
   'order/create',
 
-  async (orderDetails, { getState, dispatch }) => {
+  async (
+    { orderItems, shippingAddress, paymentMethod },
+    { getState, dispatch },
+  ) => {
     try {
       const { userInfo } = getState().userLogin;
 
-      const { data } = await orderAPI.post('/', orderDetails, {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${userInfo.token}`,
+      const { data } = await orderAPI.post(
+        '/',
+        { orderItems, shippingAddress, paymentMethod },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${userInfo.token}`,
+          },
         },
-      });
+      );
 
       await dispatch(orderDetailsAction({ orderId: data._id }));
 

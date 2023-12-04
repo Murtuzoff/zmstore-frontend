@@ -61,43 +61,53 @@ const ProductData = () => {
             </tr>
 
             <tr>
-              <td className="td-left">
+              <td
+                className={
+                  productInfo.countInStock > 0 ? 'td-left' : 'td-left td-last'
+                }
+              >
                 <span>Отзывы:</span>
               </td>
 
-              <td className="td-right">
+              <td
+                className={
+                  productInfo.countInStock > 0 ? 'td-right' : 'td-right td-last'
+                }
+              >
                 <RatingStars rating={productInfo.rating} />
                 <br />
                 <Reviews numReviews={productInfo.numReviews} />
               </td>
             </tr>
 
-            <tr>
-              <td className="td-left td-last">
-                <span>Количество:</span>
-              </td>
+            {productInfo.countInStock > 0 && (
+              <tr>
+                <td className="td-left td-last">
+                  <span>Количество:</span>
+                </td>
 
-              <td className="td-right td-last">
-                {productInfo.countInStock > 0 && (
-                  <select
-                    value={quantity}
-                    onChange={(e) => setQuantity(e.target.value)}
-                  >
-                    {[...Array(productInfo.countInStock).keys()].map(
-                      (_, index) => {
-                        const value = index + 1;
+                <td className="td-right td-last">
+                  {productInfo.countInStock > 0 && (
+                    <select
+                      value={quantity}
+                      onChange={(e) => setQuantity(e.target.value)}
+                    >
+                      {[...Array(productInfo.countInStock).keys()].map(
+                        (_, index) => {
+                          const value = index + 1;
 
-                        return (
-                          <option key={value} value={value}>
-                            {value}
-                          </option>
-                        );
-                      },
-                    )}
-                  </select>
-                )}
-              </td>
-            </tr>
+                          return (
+                            <option key={value} value={value}>
+                              {value}
+                            </option>
+                          );
+                        },
+                      )}
+                    </select>
+                  )}
+                </td>
+              </tr>
+            )}
           </tbody>
         </table>
 

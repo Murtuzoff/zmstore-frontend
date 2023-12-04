@@ -51,9 +51,6 @@ const PlaceOrder = () => {
         orderItems: cartContents.cartItems,
         shippingAddress: cartContents.shippingAddress,
         paymentMethod: cartContents.paymentMethod,
-        itemsPrice,
-        shippingPrice,
-        totalPrice,
       }),
     );
   };
