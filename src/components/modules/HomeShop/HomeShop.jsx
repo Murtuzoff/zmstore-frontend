@@ -35,7 +35,7 @@ const HomeShop = () => {
 
       {!loading && !error && (
         <div className="home-product-list">
-          {productArray.map((productInfo) => (
+          {productArray?.map((productInfo) => (
             <HomeProduct key={productInfo._id} productInfo={productInfo} />
           ))}
         </div>
