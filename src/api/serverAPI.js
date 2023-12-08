@@ -5,7 +5,7 @@ const userAPI = axios.create({
 });
 
 const productAPI = axios.create({
-  baseURL: `${process.env.REACT_APP_SERVER_URL}/api/product`,
+  baseURL: `https://zmstore-server.vercel.app/api/product`,
 });
 
 const orderAPI = axios.create({
