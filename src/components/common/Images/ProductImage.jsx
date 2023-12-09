@@ -26,9 +26,7 @@ const ProductImage = ({
         return;
       }
 
-      const response = await fetch(
-        `${process.env.REACT_APP_SERVER_URL}/${src}`,
-      );
+      const response = await fetch(src);
 
       if (response.ok) {
         const blob = await response.blob();
