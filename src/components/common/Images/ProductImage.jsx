@@ -22,8 +22,6 @@ const ProductImage = ({
 
       if (src.startsWith('blob:http')) {
         setImageSrc(src);
-
-        return;
       }
 
       const response = await fetch(src);
