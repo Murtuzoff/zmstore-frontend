@@ -80,10 +80,10 @@
   height: 36px;
   margin: 4px 0;
   background: #211;
-  border: 2px solid #ebdccb;
+  border: 1px solid #ebdccb;
   border-radius: 36px;
   cursor: pointer;
-  filter: drop-shadow(0 0 8px #211);
+  filter: drop-shadow(3px 3px 2px #000);
 }
 
 .header-dropdown-item:active span {
