@@ -40,7 +40,7 @@
 
 .header-dropdown-mask {
   position: absolute;
-  z-index: 1;
+  z-index: 3;
   display: none;
   height: 36px;
   cursor: pointer;
@@ -53,6 +53,7 @@
 }
 
 .header-dropdown-content {
+  z-index: 2;
   margin: 0;
   padding: 2px 0;
   list-style: none;
