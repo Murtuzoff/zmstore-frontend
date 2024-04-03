@@ -13,7 +13,6 @@
       }
     ],
     "property-no-vendor-prefix": null,
-    "selector-class-pattern": null,
-    "string-quotes": "single"
+    "selector-class-pattern": null
   }
 }

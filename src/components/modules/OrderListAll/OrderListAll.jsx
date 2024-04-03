@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import moment from 'moment';
 
 import { orderListAllAction } from '../../../redux/actions/orderActions';
@@ -13,6 +14,8 @@ import WoodenButton from '../../common/Buttons/WoodenButton/WoodenButton';
 import './OrderListAll.css';
 
 const OrderListAll = () => {
+  const { t } = useTranslation();
+
   const orderListAll = useSelector((state) => state.orderListAll);
   const { loading, error, orderArray } = orderListAll;
 
@@ -31,12 +34,12 @@ const OrderListAll = () => {
         !error &&
         (orderArray.length === 0 ? (
           <>
-            <MessageSuccess message="Нет заказов" marginBottom="20px" />
+            <MessageSuccess message={t('noOrders')} marginBottom="20px" />
             <Link to="/">
               <WoodenButton
                 width="300px"
                 maxWidth="100%"
-                label="ЗА ПОКУПКАМИ"
+                label={t('goShopping')}
               />
             </Link>
           </>
@@ -47,14 +50,14 @@ const OrderListAll = () => {
                 <th>
                   <span>ID</span>
                 </th>
-                <th width="100px">
-                  <span>СТАТУС</span>
+                <th width="94px">
+                  <span>{t('STATUS')}</span>
                 </th>
-                <th width="210px">
-                  <span>ДАТА</span>
+                <th width="226px">
+                  <span>{t('DATE')}</span>
                 </th>
                 <th className="th-last" width="90px">
-                  <span>ИТОГО</span>
+                  <span>{t('TOTAL')}</span>
                 </th>
               </tr>
             </thead>
@@ -81,9 +84,9 @@ const OrderListAll = () => {
 
                     <td>
                       {order.isPaid ? (
-                        <span>Оплачен</span>
+                        <span>{t('notPaid')}</span>
                       ) : (
-                        <span>Не оплачен</span>
+                        <span>{t('notPaid')}</span>
                       )}
                     </td>
 
@@ -97,7 +100,7 @@ const OrderListAll = () => {
 
                     <td className="td-last">
                       <div>
-                        <span>{order.totalPrice}</span> <span>₽</span>
+                        <span>{order.totalPrice}</span> <span>$</span>
                       </div>
                     </td>
                   </tr>

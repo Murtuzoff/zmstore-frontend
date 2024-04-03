@@ -1,0 +1,12 @@
+.language-switcher {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  z-index: 1;
+}
+
+.language-switcher button {
+  color: #ebdccb;
+  font-size: 13px;
+  background: #433;
+}

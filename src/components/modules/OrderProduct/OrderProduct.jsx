@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 import {
   cartAddAction,
@@ -13,6 +14,8 @@ import RemoveButton from '../../common/Buttons/RemoveButton/RemoveButton';
 import './OrderProduct.css';
 
 const OrderProduct = ({ product, inOrder }) => {
+  const { t } = useTranslation();
+
   const dispatch = useDispatch();
 
   const productQuantityHandler = (e) => {
@@ -52,7 +55,7 @@ const OrderProduct = ({ product, inOrder }) => {
 
       <div className="cart-product-right">
         <div className="cart-product-quantity">
-          <span>КОЛИЧЕСТВО:</span>
+          <span>{t('QUANTITY')}:</span>
 
           {!inOrder ? (
             <select value={product.quantity} onChange={productQuantityHandler}>
@@ -72,10 +75,10 @@ const OrderProduct = ({ product, inOrder }) => {
         </div>
 
         <div className="cart-product-price">
-          <span>ЦЕНА:</span>
+          <span>{t('PRICE')}:</span>
 
           <strong>
-            <span>{product.price}</span> <span>₽</span>
+            <span>{product.price}</span> <span>$</span>
           </strong>
         </div>
       </div>

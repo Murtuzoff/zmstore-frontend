@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 import { cartAddAction } from '../../../redux/actions/cartActions';
 import { orderCreateResetAction } from '../../../redux/actions/orderActions';
@@ -14,6 +15,8 @@ import WoodenButton from '../../common/Buttons/WoodenButton/WoodenButton';
 import './Cart.css';
 
 const Cart = () => {
+  const { t } = useTranslation();
+
   const { loading, error, cartItems } = useSelector(
     (state) => state.cartContents,
   );
@@ -50,19 +53,21 @@ const Cart = () => {
 
       {cartItems.length === 0 ? (
         <>
-          {!loading && !error && (
-            <MessageSuccess message="Ваша корзина пуста" />
-          )}
+          {!loading && !error && <MessageSuccess message={t('cartIsEmpty')} />}
 
           <Link to="/">
-            <WoodenButton width="300px" maxWidth="100%" label="ЗА ПОКУПКАМИ" />
+            <WoodenButton
+              width="300px"
+              maxWidth="100%"
+              label={t('goShopping')}
+            />
           </Link>
         </>
       ) : (
         <>
           {!loading && !error && (
             <MessageSuccess
-              message={`Всего наименований в корзине (${cartItems.length})`}
+              message={`${t('totalItemsInCart')} (${cartItems.length})`}
             />
           )}
 
@@ -72,11 +77,11 @@ const Cart = () => {
 
           <div className="cart-total">
             <div className="cart-total-price">
-              <span>СУММА:</span>
+              <span>{t('SUM')}:</span>
             </div>
 
             <div className="cart-total-value">
-              <span>{totalPriceValue}</span> <span>₽</span>
+              <span>{totalPriceValue}</span> <span>$</span>
             </div>
           </div>
 
@@ -85,14 +90,14 @@ const Cart = () => {
               <WoodenButton
                 width="300px"
                 maxWidth="100%"
-                label="ПРОДОЛЖИТЬ ПОКУПКИ"
+                label={t('continueShopping')}
               />
             </Link>
 
             <WoodenButton
               width="300px"
               maxWidth="100%"
-              label="ОФОРМИТЬ ЗАКАЗ"
+              label={t('CHECKOUT')}
               onClick={checkoutHandler}
             />
           </div>

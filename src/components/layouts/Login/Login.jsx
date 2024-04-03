@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import { userLoginAction } from '../../../redux/actions/userActions';
 
@@ -33,30 +34,34 @@ const Login = () => {
     dispatch(userLoginAction({ email, password }));
   };
 
+  const { t } = useTranslation();
+
   return (
     <main className="login">
       <StyledForm onSubmit={submitHandler}>
         {loading && <Loading />}
         {error && <MessageDanger message={error} />}
 
-        <strong>Авторизация пользователя:</strong>
+        <strong>{t('userAuth')}:</strong>
         <input
           type="text"
-          placeholder="Электронный адрес..."
+          placeholder={`${t('emailAddress')}...`}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type="text"
-          placeholder="Пароль..."
+          placeholder={`${t('password')}...`}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <WoodenButton width="100%" label="ВХОД" type="submit" />
+        <WoodenButton width="100%" label={t('LOGIN')} type="submit" />
         <div>
-          <span>У меня нет аккаунта:</span>{' '}
+          <span>{t('dontHaveAccount')}:</span>{' '}
           <Link to={redirect ? `/signup?redirect=${redirect}` : '/signup'}>
-            <strong>РЕГИСТРАЦИЯ</strong>
+            <strong>
+              <u>{t('SIGNUP')}</u>
+            </strong>
           </Link>
         </div>
       </StyledForm>

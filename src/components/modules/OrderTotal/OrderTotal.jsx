@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
+import { useTranslation } from 'react-i18next';
 
 import {
   orderDeliveryAction,
@@ -25,6 +26,8 @@ const OrderTotal = ({
   isDelivered,
   isAdmin,
 }) => {
+  const { t } = useTranslation();
+
   const clientId = process.env.REACT_APP_PAYPAL_CLIENT_ID;
   const currency = process.env.REACT_APP_PAYPAL_CURRENCY;
 
@@ -40,9 +43,9 @@ const OrderTotal = ({
       data?.purchase_units?.[0]?.payments?.authorizations?.[0];
     // eslint-disable-next-line no-console
     console.log({
-      Одобрение: data,
-      Плательщик: payer,
-      Транзакция: transaction,
+      Approval: data,
+      Payer: payer,
+      Transaction: transaction,
     });
 
     dispatch(orderPayAction({ orderId, payer, transaction }));
@@ -54,28 +57,28 @@ const OrderTotal = ({
         <tbody>
           <tr>
             <td className="td-left">
-              <span>Товары:</span>
+              <span>{t('products')}:</span>
             </td>
             <td className="td-right">
-              <span>{itemsPrice}</span> <span>₽</span>
+              <span>{itemsPrice}</span> <span>$</span>
             </td>
           </tr>
 
           <tr>
             <td className="td-left">
-              <span>Доставка:</span>
+              <span>{t('delivery')}:</span>
             </td>
             <td className="td-right">
-              <span>{shippingPrice}</span> <span>₽</span>
+              <span>{shippingPrice}</span> <span>$</span>
             </td>
           </tr>
 
           <tr>
             <td className="td-left td-last">
-              <span>Итого:</span>
+              <span>{t('total')}:</span>
             </td>
             <td className="td-right td-last">
-              <span>{totalPrice}</span> <span>₽</span>
+              <span>{totalPrice}</span> <span>$</span>
             </td>
           </tr>
         </tbody>
@@ -84,7 +87,7 @@ const OrderTotal = ({
       {!orderId ? (
         <WoodenButton
           width="inherit"
-          label="ОФОРМИТЬ ЗАКАЗ"
+          label={t('CHECKOUT')}
           onClick={placeOrderHandler}
         />
       ) : (
@@ -105,7 +108,7 @@ const OrderTotal = ({
       {isAdmin && isPaid && !isDelivered && (
         <WoodenButton
           width="inherit"
-          label="ПОДТВЕРДИТЬ ДОСТАВКУ"
+          label={t('confirmDelivery')}
           onClick={() => dispatch(orderDeliveryAction({ orderId }))}
         />
       )}

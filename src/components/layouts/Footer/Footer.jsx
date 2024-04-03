@@ -1,4 +1,6 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+
 import WoodenPanelBackground from '../../common/Backgrounds/WoodenPanelBackground';
 import InstagramIcon from '../../common/Icons/SocialIcons/InstagramIcon';
 import FacebookIcon from '../../common/Icons/SocialIcons/FacebookIcon';
@@ -11,34 +13,39 @@ import AmexIcon from '../../common/Icons/CardIcons/AmexIcon';
 import VisaIcon from '../../common/Icons/CardIcons/VisaIcon';
 import PaypalIcon from '../../common/Icons/CardIcons/PaypalIcon';
 import DiscoverIcon from '../../common/Icons/CardIcons/DiscoverIcon';
+
 import './Footer.css';
 
-const Footer = () => (
-  <div className="footer">
-    <WoodenPanelBackground />
-    <div className="footer-container">
-      <div className="footer-social">
-        <InstagramIcon />
-        <FacebookIcon />
-        <TelegramIcon />
-        <WhatsappIcon />
-        <ViberIcon />
-        <PinterestIcon />
-      </div>
+const Footer = () => {
+  const { t } = useTranslation();
 
-      <div className="footer-cards">
-        <MastercardIcon />
-        <VisaIcon />
-        <PaypalIcon />
-        <AmexIcon />
-        <DiscoverIcon />
-      </div>
+  return (
+    <div className="footer">
+      <WoodenPanelBackground />
+      <div className="footer-container">
+        <div className="footer-social">
+          <InstagramIcon />
+          <FacebookIcon />
+          <TelegramIcon />
+          <WhatsappIcon />
+          <ViberIcon />
+          <PinterestIcon />
+        </div>
 
-      <div className="footer-copyright">
-        <span>© Оформление сайта. Ruslan Murtuzoff, 2023</span>
+        <div className="footer-cards">
+          <MastercardIcon />
+          <VisaIcon />
+          <PaypalIcon />
+          <AmexIcon />
+          <DiscoverIcon />
+        </div>
+
+        <div className="footer-copyright">
+          <span>© {t('webDesign')} Ruslan Murtuzoff, 2024</span>
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default Footer;

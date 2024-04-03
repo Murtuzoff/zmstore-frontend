@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 import { cartPaymentAction } from '../../../redux/actions/cartActions';
 
@@ -10,6 +11,8 @@ import WoodenButton from '../../common/Buttons/WoodenButton/WoodenButton';
 import './Payment.css';
 
 const Payment = () => {
+  const { t } = useTranslation();
+
   const cartContents = useSelector((state) => state.cartContents);
   const { shippingAddress } = cartContents;
 
@@ -33,7 +36,7 @@ const Payment = () => {
   return (
     <main className="payment">
       <StyledForm onSubmit={submitHandler}>
-        <strong>Выберите метод оплаты:</strong>
+        <strong>{t('choosePayment')}:</strong>
 
         <label htmlFor="payment-method">
           <input
@@ -42,10 +45,10 @@ const Payment = () => {
             value={paymentMethod}
             onChange={(e) => setPaymentMethod(e.target.value)}
           />
-          <span>PayPal или Банковская карта</span>
+          <span>{t('paypalMethod')}</span>
         </label>
 
-        <WoodenButton width="100%" label="ПРОДОЛЖИТЬ" type="submit" />
+        <WoodenButton width="100%" label={t('CONTINUE')} type="submit" />
       </StyledForm>
     </main>
   );

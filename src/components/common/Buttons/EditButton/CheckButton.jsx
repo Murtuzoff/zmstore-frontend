@@ -16,6 +16,7 @@ const CheckButton = ({ width, height, onClick }) => {
         minHeight: `${height}`,
       }}
       type="button"
+      aria-label="Check"
       onClick={onClick}
     >
       <svg

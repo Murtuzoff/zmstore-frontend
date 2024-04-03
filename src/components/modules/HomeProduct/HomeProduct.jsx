@@ -25,7 +25,7 @@ const HomeProduct = ({ productInfo }) => {
             alt={productInfo.name}
             width="244px"
             height="244px"
-            border="2px solid #fea"
+            border="2px solid #ebdccb"
             borderRadius="8px"
             cursor="pointer"
           />
@@ -37,7 +37,7 @@ const HomeProduct = ({ productInfo }) => {
               <Reviews numReviews={productInfo.numReviews} />
             </span>
             <div className="home-product-price">
-              <span>{productInfo.price}</span> <span>₽</span>
+              <span>{productInfo.price}</span> <span>$</span>
             </div>
           </div>
         </Link>

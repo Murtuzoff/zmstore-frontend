@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 import {
   userUpdateAction,
@@ -15,6 +16,8 @@ import WoodenButton from '../../common/Buttons/WoodenButton/WoodenButton';
 import './ProfileSettings.css';
 
 const ProfileSettings = () => {
+  const { t } = useTranslation();
+
   const userLogin = useSelector((state) => state.userLogin);
   const { loading, error, userInfo } = userLogin;
 
@@ -48,7 +51,7 @@ const ProfileSettings = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
-      toastHandler('passwordNoMatch', 'Пароли не совпадают');
+      toastHandler('passwordMismatch', t('passwordMismatch'));
     } else {
       dispatch(userUpdateAction({ name, email, password }));
     }
@@ -60,22 +63,24 @@ const ProfileSettings = () => {
       setEmail(userInfo.email || '');
     }
     if (errorUpdate) {
-      toastHandler('updateError', 'Ошибка обновления профиля');
+      toastHandler('profileUpdateError', t('profileUpdateError'));
       setTimeout(() => {
         dispatch(userUpdateResetAction());
       }, 5000);
     }
     if (userId) {
-      toastHandler('updateSuccess', 'Профиль обновлён');
+      toastHandler('profileUpdateSuccess', t('profileUpdateSuccess'));
       dispatch(userUpdateResetAction());
     }
-  }, [userInfo, errorUpdate, userId, dispatch]);
+  }, [userInfo, errorUpdate, userId, dispatch, t]);
 
   return (
     <div>
-      {toastType === 'passwordNoMatch' && <ToastDanger label={toastLabel} />}
-      {toastType === 'updateError' && <ToastDanger label={toastLabel} />}
-      {toastType === 'updateSuccess' && <ToastSuccess label={toastLabel} />}
+      {toastType === 'passwordMismatch' && <ToastDanger label={toastLabel} />}
+      {toastType === 'profileUpdateError' && <ToastDanger label={toastLabel} />}
+      {toastType === 'profileUpdateSuccess' && (
+        <ToastSuccess label={toastLabel} />
+      )}
       {loadingComponent && <Loading marginBottom="20px" />}
       {errorComponent && (
         <MessageDanger message={errorComponent} marginBottom="20px" />
@@ -85,7 +90,7 @@ const ProfileSettings = () => {
         <div className="profile-settings-section">
           <input
             type="text"
-            placeholder="Имя пользователя..."
+            placeholder={`${t('username')}...`}
             value={name || ''}
             onChange={(e) => setName(e.target.value)}
             required
@@ -93,7 +98,7 @@ const ProfileSettings = () => {
 
           <input
             type="email"
-            placeholder="Электронный адрес..."
+            placeholder={`${t('emailAddress')}...`}
             value={email || ''}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -103,7 +108,7 @@ const ProfileSettings = () => {
         <div className="profile-settings-section">
           <input
             type="password"
-            placeholder="Новый пароль..."
+            placeholder={`${t('newPassword')}...`}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
@@ -111,7 +116,7 @@ const ProfileSettings = () => {
 
           <input
             type="password"
-            placeholder="Подтвердите пароль..."
+            placeholder={`${t('confirmPassword')}...`}
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
@@ -122,7 +127,7 @@ const ProfileSettings = () => {
           type="submit"
           width="300px"
           maxWidth="inherit"
-          label="ОБНОВИТЬ ПРОФИЛЬ"
+          label={t('updateProfile')}
         />
       </form>
     </div>

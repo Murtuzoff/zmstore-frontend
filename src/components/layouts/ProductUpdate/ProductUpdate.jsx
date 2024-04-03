@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 import {
   productItemAction,
@@ -21,6 +22,8 @@ import WoodenButton from '../../common/Buttons/WoodenButton/WoodenButton';
 import './ProductUpdate.css';
 
 const ProductUpdate = () => {
+  const { t } = useTranslation();
+
   const { loading, error, productInfo } = useSelector(
     (state) => state.productItem,
   );
@@ -67,16 +70,16 @@ const ProductUpdate = () => {
 
   const productDeleteHandler = () => {
     // eslint-disable-next-line no-restricted-globals, no-alert
-    const deleteConfirmed = confirm('Вы действительно хотите удалить?');
+    const deleteConfirmed = confirm(t('sureWantDelete'));
 
     if (deleteConfirmed) {
       dispatch(productDeleteAction({ productId: params.id }));
       navigate('/');
       // eslint-disable-next-line no-alert
-      alert('Удаление выполнено');
+      alert(t('deletionCompleted'));
     } else {
       // eslint-disable-next-line no-alert
-      alert('Удаление отменено');
+      alert(t('deletionCancelled'));
     }
   };
 
@@ -113,7 +116,7 @@ const ProductUpdate = () => {
         !errorComponent &&
         (stateSuccessUpdate ? (
           <>
-            <MessageSuccess message="Товар был успешно обновлён" />
+            <MessageSuccess message={t('productUpdateSuccess')} />
 
             <div className="product-update-buttons">
               <div>
@@ -121,7 +124,7 @@ const ProductUpdate = () => {
                   <WoodenButton
                     width="300px"
                     maxWidth="100%"
-                    label="К ТОВАРУ"
+                    label={t('toProduct')}
                   />
                 </Link>
 
@@ -129,7 +132,7 @@ const ProductUpdate = () => {
                   <WoodenButton
                     width="300px"
                     maxWidth="100%"
-                    label="НА ГЛАВНУЮ"
+                    label={t('toHome')}
                   />
                 </Link>
               </div>
@@ -177,7 +180,7 @@ const ProductUpdate = () => {
                   <tbody>
                     <tr>
                       <td className="td-left">
-                        <span>Цена:</span>
+                        <span>{t('price')}:</span>
                       </td>
 
                       <td className="td-right">
@@ -198,16 +201,14 @@ const ProductUpdate = () => {
                               onBlur={(e) => {
                                 if (Number.isNaN(Number(price))) {
                                   // eslint-disable-next-line no-alert
-                                  alert(
-                                    'Пожалуйста, введите корректное значение.',
-                                  );
+                                  alert(`${t('enterValidValue')}.`);
                                   setPrice('');
                                 }
                                 setPrice(Number(e.target.value).toFixed(2));
                                 setProcessPrice(false);
                               }}
                             />
-                            <span> ₽ &nbsp;</span>
+                            <span> $ &nbsp;</span>
                             <CheckButton
                               onClick={() => setProcessPrice(false)}
                             />
@@ -215,7 +216,7 @@ const ProductUpdate = () => {
                         ) : (
                           <>
                             <span>{price}</span>
-                            <span> ₽ &nbsp;</span>
+                            <span> $ &nbsp;</span>
                             <EditButton onClick={() => setProcessPrice(true)} />
                           </>
                         )}
@@ -224,7 +225,7 @@ const ProductUpdate = () => {
 
                     <tr>
                       <td className="td-left td-last">
-                        <span>Количество:</span>
+                        <span>{t('quantity')}:</span>
                       </td>
 
                       <td className="td-right td-last">
@@ -241,9 +242,7 @@ const ProductUpdate = () => {
                               onBlur={(e) => {
                                 if (Number.isNaN(Number(countInStock))) {
                                   // eslint-disable-next-line no-alert
-                                  alert(
-                                    'Пожалуйста, введите корректное значение.',
-                                  );
+                                  alert(`${t('enterValidValue')}.`);
                                   setCountInStock('');
                                 }
                                 setCountInStock(
@@ -299,20 +298,20 @@ const ProductUpdate = () => {
                   <WoodenButton
                     width="300px"
                     maxWidth="100%"
-                    label="ОТМЕНИТЬ"
+                    label={t('CANCEL')}
                   />
                 </Link>
                 <WoodenButton
                   width="300px"
                   maxWidth="100%"
-                  label="ОБНОВИТЬ"
+                  label={t('UPDATE')}
                   onClick={productUpdateHandler}
                 />
               </div>
               <WoodenButton
                 width="300px"
                 maxWidth="100%"
-                label="УДАЛИТЬ"
+                label={t('DELETE')}
                 onClick={productDeleteHandler}
               />
             </div>

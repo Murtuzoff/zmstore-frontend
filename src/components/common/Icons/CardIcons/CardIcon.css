@@ -1,4 +1,4 @@
 .card-icon svg {
-  filter: drop-shadow(0 0 8px #211);
-  fill: #dca;
+  filter: drop-shadow(3px 3px 2px #000);
+  fill: #ebdccb;
 }

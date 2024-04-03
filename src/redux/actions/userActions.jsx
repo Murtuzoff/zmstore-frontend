@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { userAPI } from '../../api/serverAPI';
 
-// АВТОРИЗАЦИЯ ПОЛЬЗОВАТЕЛЯ (POST)
+// USER AUTHORIZATION (POST)
 export const userLoginAction = createAsyncThunk(
   'user/login',
 
@@ -26,7 +26,7 @@ export const userLoginAction = createAsyncThunk(
   },
 );
 
-// РЕГИСТРАЦИЯ ПОЛЬЗОВАТЕЛЯ (POST)
+// USER REGISTRATION (POST)
 export const userSignupAction = createAsyncThunk(
   'user/signup',
 
@@ -49,7 +49,7 @@ export const userSignupAction = createAsyncThunk(
   },
 );
 
-// ВЫХОД ПОЛЬЗОВАТЕЛЯ (POST)
+// USER LOGOUT (POST)
 export const userLogoutAction = createAsyncThunk(
   'user/login',
 
@@ -59,7 +59,7 @@ export const userLogoutAction = createAsyncThunk(
   },
 );
 
-// ЗАПРОС ПОЛЬЗОВАТЕЛЯ USER (GET)
+// GET USER PROFILE (GET)
 export const userProfileAction = createAsyncThunk(
   'user/profile',
 
@@ -76,9 +76,9 @@ export const userProfileAction = createAsyncThunk(
       const message = error.response?.data.message || error.message;
 
       switch (message) {
-        case 'Не авторизован, нет токена':
-        case 'Не авторизован, неверный формат токена':
-        case 'Не авторизован, недействительный токен':
+        case 'Not authorized, no token':
+        case 'Not authorized, incorrect token format':
+        case 'Not authorized, invalid token':
           await dispatch(userLogoutAction());
           throw message;
 
@@ -89,7 +89,7 @@ export const userProfileAction = createAsyncThunk(
   },
 );
 
-// ОБНОВЛЕНИЕ ПОЛЬЗОВАТЕЛЯ USER (PUT)
+// UPDATE USER PROFILE (PUT)
 export const userUpdateAction = createAsyncThunk(
   'user/update',
 
@@ -115,9 +115,9 @@ export const userUpdateAction = createAsyncThunk(
       const message = error.response?.data.message || error.message;
 
       switch (message) {
-        case 'Не авторизован, нет токена':
-        case 'Не авторизован, неверный формат токена':
-        case 'Не авторизован, недействительный токен':
+        case 'Not authorized, no token':
+        case 'Not authorized, incorrect token format':
+        case 'Not authorized, invalid token':
           await dispatch(userLogoutAction());
           throw message;
 
@@ -128,7 +128,7 @@ export const userUpdateAction = createAsyncThunk(
   },
 );
 
-// ОЧИСТКА ОБНОВЛЕНИЯ ПОЛЬЗОВАТЕЛЯ
+// CLEAR UPDATE USER PROFILE
 export const userUpdateResetAction = createAsyncThunk(
   'user/update',
   async (_, { dispatch }) => {

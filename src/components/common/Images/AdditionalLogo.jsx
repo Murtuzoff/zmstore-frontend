@@ -12,7 +12,7 @@ const AdditionalLogo = ({ width, height }) => (
 );
 
 AdditionalLogo.defaultProps = {
-  width: '150px',
+  width: '352px',
   height: '150px',
 };
 

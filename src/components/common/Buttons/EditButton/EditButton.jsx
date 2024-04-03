@@ -16,6 +16,7 @@ const EditButton = ({ width, height, onClick }) => {
         minHeight: `${height}`,
       }}
       type="button"
+      aria-label="Edit"
       onClick={onClick}
     >
       <svg

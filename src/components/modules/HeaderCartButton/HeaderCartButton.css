@@ -6,15 +6,15 @@
   width: 130px;
   height: 36px;
   background: #2114;
-  border: 2px solid #fea;
+  border: 1px solid #ebdccb;
   border-radius: 36px;
   cursor: pointer;
-  filter: drop-shadow(0 0 8px #211);
+  filter: drop-shadow(3px 3px 2px #000);
 }
 
 .header-cart-label {
   margin: auto;
-  color: #fea;
+  color: #ebdccb;
 }
 
 .header-cart-button .rounded-icon {
@@ -34,15 +34,15 @@
   height: 14px;
   color: #211;
   font-weight: bold;
-  font-size: 10px;
-  background: #fea;
+  font-size: 12px;
+  background: #ebdccb;
   border-radius: 10px;
 }
 
 .header-cart-button:active .header-cart-label,
 .header-cart-button:active .rounded-icon,
 .header-cart-button:active .header-cart-badge {
-  filter: drop-shadow(0 0 4px #feaa);
+  filter: drop-shadow(0 0 4px #ebdccbaa);
 }
 
 @media (width < 700px) {

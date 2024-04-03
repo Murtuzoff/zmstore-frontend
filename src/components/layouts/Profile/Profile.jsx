@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import moment from 'moment';
+import 'moment/locale/az';
 import 'moment/locale/ru';
 
 import MessageDanger from '../../common/Messages/MessageDanger';
@@ -17,6 +19,11 @@ import './Profile.css';
 
 const Profile = () => {
   window.scrollTo(0, 0);
+  const { t, i18n } = useTranslation();
+
+  if (i18n.language === 'az') moment.locale('az');
+  if (i18n.language === 'en') moment.locale('en');
+  if (i18n.language === 'ru') moment.locale('ru');
 
   const userLogin = useSelector((state) => state.userLogin);
   const { loading, error, userInfo } = userLogin;
@@ -54,7 +61,7 @@ const Profile = () => {
               <span className="profile-card-username">{userInfo?.name}</span>
 
               <span className="profile-card-reglabel">
-                Аккаунт зарегистрирован:
+                {t('accountCreated')}:
               </span>
 
               <span className="profile-card-regdate">
@@ -63,7 +70,7 @@ const Profile = () => {
             </div>
 
             {loading ? (
-              <Loading color="#fea" />
+              <Loading color="#ebdccb" />
             ) : (
               <UserIcon width="70px" height="70px" />
             )}
@@ -72,7 +79,7 @@ const Profile = () => {
 
         <div className="profile-buttons">
           <ProfileButton
-            label="СПИСОК ЗАКАЗОВ"
+            label={t('orderList')}
             count={
               userInfo?.isAdmin
                 ? orderListAll?.orderArray?.length
@@ -83,7 +90,7 @@ const Profile = () => {
           />
 
           <ProfileButton
-            label="НАСТРОЙКИ ПРОФИЛЯ"
+            label={t('profileSettings')}
             onClick={profileSettingsHandler}
             isActive={activeTab === 'ProfileSettings'}
           />

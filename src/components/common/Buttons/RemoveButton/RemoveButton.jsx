@@ -6,6 +6,7 @@ const RemoveButton = ({ top, right, bottom, left, onClick }) => (
   <button
     className="remove-button"
     type="button"
+    aria-label="Remove"
     onClick={onClick}
     style={{
       top: `${top}`,

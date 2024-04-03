@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
 import UserSuccess from '../../common/Icons/AlertIcons/UserSuccess';
 import TruckSuccess from '../../common/Icons/AlertIcons/TruckSuccess';
@@ -18,66 +19,70 @@ const OrderHeader = ({
   isPlaced,
   isPaid,
   isDelivered,
-}) => (
-  <div className="order-header">
-    <div className="order-status">
-      <div className="order-status-content">
-        <UserSuccess />
+}) => {
+  const { t } = useTranslation();
 
-        <strong>Покупатель:</strong>
+  return (
+    <div className="order-header">
+      <div className="order-status">
+        <div className="order-status-content">
+          <UserSuccess />
 
-        <span>{userInfo?.name}</span>
+          <strong>{t('customer')}:</strong>
 
-        <span>{userInfo?.email}</span>
-      </div>
-    </div>
+          <span>{userInfo?.name}</span>
 
-    <div className="order-status">
-      <div className="order-status-content">
-        {isPlaced && !isPaid ? <TruckDanger /> : <TruckSuccess />}
-
-        <strong>О заказе:</strong>
-
-        <div>
-          <span>Страна доставки:</span> <br />
-          <span>{shippingAddress.country}</span>
-        </div>
-
-        <div>
-          <span>Метод оплаты:</span> <span>{paymentMethod}</span>
+          <span>{userInfo?.email}</span>
         </div>
       </div>
 
-      {isPlaced &&
-        (!isPaid ? (
-          <MessageDanger message="Не оплачен" />
-        ) : (
-          <MessageSuccess message="Оплачен" />
-        ))}
-    </div>
+      <div className="order-status">
+        <div className="order-status-content">
+          {isPlaced && !isPaid ? <TruckDanger /> : <TruckSuccess />}
 
-    <div className="order-status">
-      <div className="order-status-content">
-        {isPlaced && !isDelivered ? <LocationDanger /> : <LocationSuccess />}
+          <strong>{t('aboutOrder')}:</strong>
 
-        <strong>Адрес доставки:</strong>
+          <div>
+            <span>{t('deliveryCountry')}:</span> <br />
+            <span>{shippingAddress.country}</span>
+          </div>
 
-        <div>
-          <span>{shippingAddress.postalCode}</span>,{' '}
-          <span>{shippingAddress.city}</span>, <br />
-          <span>{shippingAddress.address}</span>
+          <div>
+            <span>{t('paymentMethod')}:</span> <span>{paymentMethod}</span>
+          </div>
         </div>
+
+        {isPlaced &&
+          (!isPaid ? (
+            <MessageDanger message={t('notPaid')} />
+          ) : (
+            <MessageSuccess message={t('paid')} />
+          ))}
       </div>
 
-      {isPlaced &&
-        (!isDelivered ? (
-          <MessageDanger message="Не доставлен" />
-        ) : (
-          <MessageSuccess message="Доставлен" />
-        ))}
+      <div className="order-status">
+        <div className="order-status-content">
+          {isPlaced && !isDelivered ? <LocationDanger /> : <LocationSuccess />}
+
+          <strong>{t('deliveryAddress')}:</strong>
+
+          <div>
+            <span>{shippingAddress.postalCode}</span>,{' '}
+            <span>{shippingAddress.city}</span>, <br />
+            <span>{shippingAddress.address}</span>
+          </div>
+        </div>
+
+        {isPlaced &&
+          (!isDelivered ? (
+            <MessageDanger message={t('notDelivered')} />
+          ) : (
+            <MessageSuccess message={t('delivered')} />
+          ))}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 OrderHeader.defaultProps = {
   userInfo: {},

@@ -34,17 +34,17 @@
   align-items: center;
   justify-content: space-around;
   height: 48px;
-  color: #fea;
+  color: #ebdccb;
   font-size: 17px;
   cursor: pointer;
 }
 
 .home-contact-detail span {
-  filter: drop-shadow(0 0 8px #211);
+  filter: drop-shadow(3px 3px 2px #000);
 }
 
 .home-contact-detail:active span {
-  filter: drop-shadow(0 0 2px #feaa);
+  filter: drop-shadow(0 0 2px #ebdccbaa);
 }
 
 @media (1000px <= width < 1100px) {

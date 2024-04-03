@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 import {
   productCreateAction,
@@ -19,6 +20,8 @@ import WoodenButton from '../../common/Buttons/WoodenButton/WoodenButton';
 import './ProductCreate.css';
 
 const ProductCreate = () => {
+  const { t } = useTranslation();
+
   const { loading, error, productId } = useSelector(
     (state) => state.productCreate,
   );
@@ -66,7 +69,7 @@ const ProductCreate = () => {
         !error &&
         (stateProductId ? (
           <>
-            <MessageSuccess message="Товар был успешно добавлен" />
+            <MessageSuccess message={t('productAddSuccess')} />
 
             <div className="product-create-buttons">
               <div>
@@ -74,7 +77,7 @@ const ProductCreate = () => {
                   <WoodenButton
                     width="300px"
                     maxWidth="100%"
-                    label="К ТОВАРУ"
+                    label={t('toProduct')}
                   />
                 </Link>
 
@@ -82,7 +85,7 @@ const ProductCreate = () => {
                   <WoodenButton
                     width="300px"
                     maxWidth="100%"
-                    label="НА ГЛАВНУЮ"
+                    label={t('toHome')}
                   />
                 </Link>
               </div>
@@ -98,7 +101,7 @@ const ProductCreate = () => {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     onBlur={() => setProcessName(false)}
-                    placeholder="Введите название"
+                    placeholder={t('enterName')}
                   />
                   <span> &nbsp;</span>
                   <CheckButton onClick={() => setProcessName(false)} />
@@ -131,7 +134,7 @@ const ProductCreate = () => {
                   <tbody>
                     <tr>
                       <td className="td-left">
-                        <span>Цена:</span>
+                        <span>{t('price')}:</span>
                       </td>
 
                       <td className="td-right">
@@ -152,16 +155,14 @@ const ProductCreate = () => {
                               onBlur={(e) => {
                                 if (Number.isNaN(Number(price))) {
                                   // eslint-disable-next-line no-alert
-                                  alert(
-                                    'Пожалуйста, введите корректное значение.',
-                                  );
+                                  alert(`${t('enterValidValue')}.`);
                                   setPrice('');
                                 }
                                 setPrice(Number(e.target.value).toFixed(2));
                                 setProcessPrice(false);
                               }}
                             />
-                            <span> ₽ &nbsp;</span>
+                            <span> $ &nbsp;</span>
                             <CheckButton
                               onClick={() => setProcessPrice(false)}
                             />
@@ -169,7 +170,7 @@ const ProductCreate = () => {
                         ) : (
                           <>
                             <span>{price}</span>
-                            <span> ₽ &nbsp;</span>
+                            <span> $ &nbsp;</span>
                             <EditButton onClick={() => setProcessPrice(true)} />
                           </>
                         )}
@@ -178,7 +179,7 @@ const ProductCreate = () => {
 
                     <tr>
                       <td className="td-left td-last">
-                        <span>Количество:</span>
+                        <span>{t('quantity')}:</span>
                       </td>
 
                       <td className="td-right td-last">
@@ -195,9 +196,7 @@ const ProductCreate = () => {
                               onBlur={(e) => {
                                 if (Number.isNaN(Number(countInStock))) {
                                   // eslint-disable-next-line no-alert
-                                  alert(
-                                    'Пожалуйста, введите корректное значение.',
-                                  );
+                                  alert(`${t('enterValidValue')}.`);
                                   setCountInStock('');
                                 }
                                 setCountInStock(
@@ -234,7 +233,7 @@ const ProductCreate = () => {
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                     onBlur={() => setProcessDescription(false)}
-                    placeholder="Введите описание"
+                    placeholder={t('enterDescription')}
                   />
                   <span> &nbsp;</span>
                   <CheckButton onClick={() => setProcessDescription(false)} />
@@ -254,13 +253,13 @@ const ProductCreate = () => {
                   <WoodenButton
                     width="300px"
                     maxWidth="100%"
-                    label="ОТМЕНИТЬ"
+                    label={t('CANCEL')}
                   />
                 </Link>
                 <WoodenButton
                   width="300px"
                   maxWidth="100%"
-                  label="ДОБАВИТЬ"
+                  label={t('CREATE')}
                   onClick={productCreateHandler}
                 />
               </div>

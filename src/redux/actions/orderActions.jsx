@@ -3,7 +3,7 @@ import { orderAPI } from '../../api/serverAPI';
 import { cartResetAction } from './cartActions';
 import { userLogoutAction } from './userActions';
 
-// ЗАПРОС ОДНОГО ЗАКАЗА ПО ID (GET)
+// GET ORDER BY ID (GET)
 export const orderDetailsAction = createAsyncThunk(
   'order/details',
 
@@ -22,9 +22,9 @@ export const orderDetailsAction = createAsyncThunk(
       const message = error.response?.data.message || error.message;
 
       switch (message) {
-        case 'Не авторизован, нет токена':
-        case 'Не авторизован, неверный формат токена':
-        case 'Не авторизован, недействительный токен':
+        case 'Not authorized, no token':
+        case 'Not authorized, incorrect token format':
+        case 'Not authorized, invalid token':
           await dispatch(userLogoutAction());
           throw message;
 
@@ -35,7 +35,7 @@ export const orderDetailsAction = createAsyncThunk(
   },
 );
 
-// ДОБАВЛЕНИЕ ЗАКАЗА (POST)
+// ADD ORDER (POST)
 export const orderCreateAction = createAsyncThunk(
   'order/create',
 
@@ -66,9 +66,9 @@ export const orderCreateAction = createAsyncThunk(
       const message = error.response?.data.message || error.message;
 
       switch (message) {
-        case 'Не авторизован, нет токена':
-        case 'Не авторизован, неверный формат токена':
-        case 'Не авторизован, недействительный токен':
+        case 'Not authorized, no token':
+        case 'Not authorized, incorrect token format':
+        case 'Not authorized, invalid token':
           await dispatch(userLogoutAction());
           throw message;
 
@@ -79,13 +79,13 @@ export const orderCreateAction = createAsyncThunk(
   },
 );
 
-// ОЧИСТКА ДОБАВЛЕНИЯ ЗАКАЗА
+// CLEAR ADD ORDER
 export const orderCreateResetAction = createAsyncThunk(
   'order/create',
   async () => '',
 );
 
-// ОПЛАТА ЗАКАЗА ПО ID (PUT)
+// PAY BY ORDER ID (PUT)
 export const orderPayAction = createAsyncThunk(
   'order/pay',
 
@@ -109,9 +109,9 @@ export const orderPayAction = createAsyncThunk(
       const message = error.response?.data.message || error.message;
 
       switch (message) {
-        case 'Не авторизован, нет токена':
-        case 'Не авторизован, неверный формат токена':
-        case 'Не авторизован, недействительный токен':
+        case 'Not authorized, no token':
+        case 'Not authorized, incorrect token format':
+        case 'Not authorized, invalid token':
           await dispatch(userLogoutAction());
           throw message;
 
@@ -122,7 +122,7 @@ export const orderPayAction = createAsyncThunk(
   },
 );
 
-// ДОСТАВКА ЗАКАЗА ПО ID ADMIN (PUT)
+// ADMIN DELIVERY BY ORDER ID (PUT)
 export const orderDeliveryAction = createAsyncThunk(
   'order/delivery',
 
@@ -146,9 +146,9 @@ export const orderDeliveryAction = createAsyncThunk(
       const message = error.response?.data.message || error.message;
 
       switch (message) {
-        case 'Не авторизован, нет токена':
-        case 'Не авторизован, неверный формат токена':
-        case 'Не авторизован, недействительный токен':
+        case 'Not authorized, no token':
+        case 'Not authorized, incorrect token format':
+        case 'Not authorized, invalid token':
           await dispatch(userLogoutAction());
           throw message;
 
@@ -159,7 +159,7 @@ export const orderDeliveryAction = createAsyncThunk(
   },
 );
 
-// ЗАПРОС СПИСКА ЗАКАЗОВ USER (GET)
+// USER GET ORDER LIST (GET)
 export const orderListAction = createAsyncThunk(
   'order/list',
 
@@ -178,9 +178,9 @@ export const orderListAction = createAsyncThunk(
       const message = error.response?.data.message || error.message;
 
       switch (message) {
-        case 'Не авторизован, нет токена':
-        case 'Не авторизован, неверный формат токена':
-        case 'Не авторизован, недействительный токен':
+        case 'Not authorized, no token':
+        case 'Not authorized, incorrect token format':
+        case 'Not authorized, invalid token':
           await dispatch(userLogoutAction());
           throw message;
 
@@ -191,7 +191,7 @@ export const orderListAction = createAsyncThunk(
   },
 );
 
-// ЗАПРОС СПИСКА ЗАКАЗОВ ADMIN (GET)
+// ADMIN GET ALL ORDER LIST (GET)
 export const orderListAllAction = createAsyncThunk(
   'order/listAll',
 
@@ -210,9 +210,9 @@ export const orderListAllAction = createAsyncThunk(
       const message = error.response?.data.message || error.message;
 
       switch (message) {
-        case 'Не авторизован, нет токена':
-        case 'Не авторизован, неверный формат токена':
-        case 'Не авторизован, недействительный токен':
+        case 'Not authorized, no token':
+        case 'Not authorized, incorrect token format':
+        case 'Not authorized, invalid token':
           await dispatch(userLogoutAction());
           throw message;
 

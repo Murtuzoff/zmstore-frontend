@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { productAPI } from '../../api/serverAPI';
 import { userLogoutAction } from './userActions';
 
-// ЗАПРОС ВСЕХ ТОВАРОВ (GET)
+// GET ALL PRODUCTS (GET)
 export const productListAction = createAsyncThunk(
   'product/list',
 
@@ -19,7 +19,7 @@ export const productListAction = createAsyncThunk(
   },
 );
 
-// ЗАПРОС ТОВАРА ПО ID (GET)
+// GET PRODUCT BY ID (GET)
 export const productItemAction = createAsyncThunk(
   'product/item',
 
@@ -34,7 +34,7 @@ export const productItemAction = createAsyncThunk(
   },
 );
 
-// USER ДОБАВЛЕНИЕ НОВОГО ОТЗЫВА ПО ID ТОВАРА (POST)
+// ADD REVIEW BY PRODUCT ID (POST)
 export const productReviewAction = createAsyncThunk(
   'product/review',
 
@@ -60,9 +60,9 @@ export const productReviewAction = createAsyncThunk(
       const message = error.response?.data.message || error.message;
 
       switch (message) {
-        case 'Не авторизован, нет токена':
-        case 'Не авторизован, неверный формат токена':
-        case 'Не авторизован, недействительный токен':
+        case 'Not authorized, no token':
+        case 'Not authorized, incorrect token format':
+        case 'Not authorized, invalid token':
           await dispatch(userLogoutAction());
           throw message;
 
@@ -73,13 +73,13 @@ export const productReviewAction = createAsyncThunk(
   },
 );
 
-// USER ОЧИСТКА ДОБАВЛЕНИЯ ОТЗЫВА
+// CLEAR ADD REVIEW
 export const productReviewResetAction = createAsyncThunk(
   'product/review',
   async () => '',
 );
 
-// ADMIN ДОБАВЛЕНИЕ ТОВАРА (POST)
+// ADD PRODUCT (POST)
 export const productCreateAction = createAsyncThunk(
   'product/create',
 
@@ -109,10 +109,10 @@ export const productCreateAction = createAsyncThunk(
       const message = error.response?.data.message || error.message;
 
       switch (message) {
-        case 'Не авторизован, нет токена':
-        case 'Не авторизован, неверный формат токена':
-        case 'Не авторизован, недействительный токен':
-        case 'Не авторизован в качестве Администратора':
+        case 'Not authorized, no token':
+        case 'Not authorized, incorrect token format':
+        case 'Not authorized, invalid token':
+        case 'Not authorized as an Admin':
           await dispatch(userLogoutAction());
           throw message;
 
@@ -123,13 +123,13 @@ export const productCreateAction = createAsyncThunk(
   },
 );
 
-// ADMIN ОЧИСТКА ДОБАВЛЕНИЯ ТОВАРА
+// CLEAR ADD PRODUCT
 export const productCreateResetAction = createAsyncThunk(
   'product/create',
   async () => '',
 );
 
-// ADMIN ОБНОВЛЕНИЕ ТОВАРА ПО ID (PUT)
+// UPDATE PRODUCT BY ID (PUT)
 export const productUpdateAction = createAsyncThunk(
   'product/update',
 
@@ -159,10 +159,10 @@ export const productUpdateAction = createAsyncThunk(
       const message = error.response?.data.message || error.message;
 
       switch (message) {
-        case 'Не авторизован, нет токена':
-        case 'Не авторизован, неверный формат токена':
-        case 'Не авторизован, недействительный токен':
-        case 'Не авторизован в качестве Администратора':
+        case 'Not authorized, no token':
+        case 'Not authorized, incorrect token format':
+        case 'Not authorized, invalid token':
+        case 'Not authorized as an Admin':
           await dispatch(userLogoutAction());
           throw message;
 
@@ -173,13 +173,13 @@ export const productUpdateAction = createAsyncThunk(
   },
 );
 
-// ADMIN ОЧИСТКА ОБНОВЛЕНИЯ ТОВАРА
+// CLEAR UPDATE PRODUCT
 export const productUpdateResetAction = createAsyncThunk(
   'product/update',
   async () => false,
 );
 
-// ADMIN УДАЛЕНИЕ ТОВАРА ПО ID (DELETE)
+// DELETE PRODUCT BY ID (DELETE)
 export const productDeleteAction = createAsyncThunk(
   'product/delete',
 
@@ -196,10 +196,10 @@ export const productDeleteAction = createAsyncThunk(
       const message = error.response?.data.message || error.message;
 
       switch (message) {
-        case 'Не авторизован, нет токена':
-        case 'Не авторизован, неверный формат токена':
-        case 'Не авторизован, недействительный токен':
-        case 'Не авторизован в качестве Администратора':
+        case 'Not authorized, no token':
+        case 'Not authorized, incorrect token format':
+        case 'Not authorized, invalid token':
+        case 'Not authorized as an Admin':
           await dispatch(userLogoutAction());
           throw message;
 

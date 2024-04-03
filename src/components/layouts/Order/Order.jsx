@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import { orderDetailsAction } from '../../../redux/actions/orderActions';
 
@@ -34,6 +35,8 @@ const Order = () => {
     }
   }, [orderId, dispatch]);
 
+  const { t } = useTranslation();
+
   return (
     <main className="order">
       {loading && <Loading />}
@@ -42,7 +45,11 @@ const Order = () => {
       {!orderInfo.orderItems ? (
         !loading && (
           <Link to="/">
-            <WoodenButton width="300px" maxWidth="100%" label="ЗА ПОКУПКАМИ" />
+            <WoodenButton
+              width="300px"
+              maxWidth="100%"
+              label={t('goShopping')}
+            />
           </Link>
         )
       ) : (

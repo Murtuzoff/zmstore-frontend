@@ -16,6 +16,7 @@ const EditImageButton = ({ width, height, onClick }) => {
         minHeight: `${height}`,
       }}
       type="button"
+      aria-label="Edit"
     >
       <input
         className="edit-input"

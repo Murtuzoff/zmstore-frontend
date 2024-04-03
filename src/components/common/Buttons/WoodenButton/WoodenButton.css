@@ -17,11 +17,11 @@
 
 .wooden-button > span {
   position: relative;
-  color: #fea;
+  color: #ebdccb;
   font-weight: bold;
-  filter: drop-shadow(0 0 8px #211);
+  filter: drop-shadow(3px 3px 2px #000);
 }
 
 .wooden-button:active > span {
-  filter: drop-shadow(0 0 2px #fea4);
+  filter: drop-shadow(0 0 2px #ebdccb44);
 }

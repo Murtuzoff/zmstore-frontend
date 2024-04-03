@@ -17,7 +17,7 @@
 }
 
 .home-product-container a {
-  color: #fea;
+  color: #ebdccb;
 }
 
 .home-product-detail {
@@ -28,7 +28,7 @@
   justify-content: flex-end;
   height: 110px;
   padding: 6px;
-  color: #fea;
+  color: #ebdccb;
   font-size: 18px;
   cursor: pointer;
 }
@@ -37,18 +37,22 @@
 .home-product-name,
 .home-product-reviews,
 .home-product-price {
-  filter: drop-shadow(0 0 8px #211);
+  filter: drop-shadow(3px 3px 2px #000);
 }
 
 .home-product-container img:active,
 .home-product-name:active,
 .home-product-reviews:active,
 .home-product-price:active {
-  filter: drop-shadow(0 0 4px #fea7);
+  filter: drop-shadow(0 0 4px #ebdccb77);
+}
+
+.home-product-detail .rating-stars svg {
+  filter: drop-shadow(3px 3px 2px #000);
 }
 
 .home-product-detail .rating-stars:active svg {
-  filter: drop-shadow(0 0 4px #fea4);
+  filter: drop-shadow(3px 3px 2px #ebdccb44);
 }
 
 .home-product-container .edit-button {

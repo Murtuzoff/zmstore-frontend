@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-// АВТОРИЗАЦИЯ ПОЛЬЗОВАТЕЛЯ
+// USER AUTHORIZATION
 export const userLogin = createSlice({
   name: 'userLogin',
   initialState: {
@@ -25,7 +25,7 @@ export const userLogin = createSlice({
   },
 });
 
-// РЕГИСТРАЦИЯ ПОЛЬЗОВАТЕЛЯ
+// USER REGISTRATION
 export const userSignup = createSlice({
   name: 'userSignup',
   initialState: {
@@ -49,7 +49,7 @@ export const userSignup = createSlice({
   },
 });
 
-// ОБНОВЛЕНИЕ ПОЛЬЗОВАТЕЛЯ USER
+// UPDATE USER PROFILE
 export const userUpdate = createSlice({
   name: 'userUpdate',
   initialState: {

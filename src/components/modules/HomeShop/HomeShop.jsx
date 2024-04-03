@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import { productListAction } from '../../../redux/actions/productActions';
 
@@ -13,6 +14,7 @@ import HomePagination from '../HomePagination/HomePagination';
 import './HomeShop.css';
 
 const HomeShop = () => {
+  const { t } = useTranslation();
   const userLogin = useSelector((state) => state.userLogin);
 
   const productList = useSelector((state) => state.productList);
@@ -52,7 +54,7 @@ const HomeShop = () => {
           <WoodenButton
             width="300px"
             maxWidth="100%"
-            label="ДОБАВИТЬ НОВЫЙ ТОВАР"
+            label={t('addNewProduct')}
           />
         </Link>
       )}

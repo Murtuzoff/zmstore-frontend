@@ -8,6 +8,7 @@ import EnvelopeIcon from '../../common/Icons/RoundedIcons/EnvelopeIcon';
 import HeaderSearchBar from '../../modules/HeaderSearchBar/HeaderSearchBar';
 import HeaderDropdownMenu from '../../modules/HeaderDropdownMenu/HeaderDropdownMenu';
 import HeaderCartButton from '../../modules/HeaderCartButton/HeaderCartButton';
+import LanguageSwitcher from '../../common/LanguageSwitcher/LanguageSwitcher';
 
 import './Header.css';
 
@@ -24,7 +25,7 @@ const Header = () => (
           <EnvelopeIcon />
         </HashLink>
 
-        <span className="header-contact">+7 900 001 2907</span>
+        <span className="header-contact">+994 99 700 2907</span>
         <span className="header-contact">zoreslava.murtuzoff@gmail.com</span>
       </div>
 
@@ -35,6 +36,7 @@ const Header = () => (
           <HeaderCartButton />
         </Link>
       </div>
+      <LanguageSwitcher />
     </div>
   </div>
 );

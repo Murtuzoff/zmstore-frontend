@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { productAPI } from '../../api/serverAPI';
 
-// ДОБАВЛЕНИЕ ТОВАРА В КОРЗИНУ
+// ADD PRODUCT TO CART
 export const cartAddAction = createAsyncThunk(
   'cart/contents',
 
@@ -29,7 +29,7 @@ export const cartAddAction = createAsyncThunk(
   },
 );
 
-// УДАЛЕНИЕ ТОВАРА ИЗ КОРЗИНЫ
+// REMOVE PRODUCT FROM CART
 export const cartRemoveAction = createAsyncThunk(
   'cart/contents',
 
@@ -48,7 +48,7 @@ export const cartRemoveAction = createAsyncThunk(
   },
 );
 
-// СОХРАНЕНИЕ АДРЕСА ДОСТАВКИ ТОВАРА
+// SAVE DELIVERY ADDRESS
 export const cartShippingAction = createAsyncThunk(
   'cart/contents',
 
@@ -69,7 +69,7 @@ export const cartShippingAction = createAsyncThunk(
   },
 );
 
-// СОХРАНЕНИЕ СПОСОБА ОПЛАТЫ ТОВАРА
+// SAVE PAYMENT METHOD
 export const cartPaymentAction = createAsyncThunk(
   'cart/contents',
 
@@ -87,7 +87,7 @@ export const cartPaymentAction = createAsyncThunk(
   },
 );
 
-// ОЧИСТКА КОРЗИНЫ
+// CLEAR CART
 export const cartResetAction = createAsyncThunk(
   'cart/contents',
 
@@ -98,7 +98,6 @@ export const cartResetAction = createAsyncThunk(
       });
 
       localStorage.removeItem('cartItems');
-      // localStorage.removeItem('shippingAddress');
       localStorage.removeItem('paymentMethod');
     } catch (error) {
       throw error.response?.data.message || error.message;

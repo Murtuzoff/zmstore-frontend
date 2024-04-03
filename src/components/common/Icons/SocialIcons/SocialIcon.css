@@ -1,8 +1,8 @@
 .social-icon svg {
-  filter: drop-shadow(0 0 8px #211);
-  fill: #fea;
+  filter: drop-shadow(3px 3px 2px #000);
+  fill: #ebdccb;
 }
 
 .social-icon svg:active {
-  filter: drop-shadow(0 0 1px #feaa);
+  filter: drop-shadow(0 0 1px #ebdccbaa);
 }

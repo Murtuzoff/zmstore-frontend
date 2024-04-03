@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-// ЗАПРОС ОДНОГО ЗАКАЗА ПО ID (GET)
+// GET ORDER BY ID (GET)
 export const orderDetails = createSlice({
   name: 'orderDetails',
   initialState: {
@@ -26,7 +26,7 @@ export const orderDetails = createSlice({
   },
 });
 
-// ДОБАВЛЕНИЕ ЗАКАЗА (POST)
+// ADD ORDER (POST)
 export const orderCreate = createSlice({
   name: 'orderCreate',
   initialState: {
@@ -52,7 +52,7 @@ export const orderCreate = createSlice({
   },
 });
 
-// ОПЛАТА ЗАКАЗА ПО ID (PUT)
+// PAY BY ORDER ID (PUT)
 export const orderPay = createSlice({
   name: 'orderPay',
   initialState: {
@@ -76,7 +76,7 @@ export const orderPay = createSlice({
   },
 });
 
-// ДОСТАВКА ЗАКАЗА ПО ID (PUT)
+// DELIVERY BY ORDER ID (PUT)
 export const orderDelivery = createSlice({
   name: 'orderDelivery',
   initialState: {
@@ -100,7 +100,7 @@ export const orderDelivery = createSlice({
   },
 });
 
-// ЗАПРОС СПИСКА ЗАКАЗОВ USER (GET)
+// USER GET ORDER LIST (GET)
 export const orderList = createSlice({
   name: 'orderList',
   initialState: {
@@ -126,7 +126,7 @@ export const orderList = createSlice({
   },
 });
 
-// ЗАПРОС СПИСКА ЗАКАЗОВ USER (GET)
+// ADMIN GET ALL ORDER LIST (GET)
 export const orderListAll = createSlice({
   name: 'orderListAll',
   initialState: {

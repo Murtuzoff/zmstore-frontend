@@ -34,7 +34,7 @@
   max-width: inherit;
   height: inherit;
   padding: 10px;
-  color: #fea;
+  color: #ebdccb;
   border-radius: inherit;
 }
 
@@ -64,7 +64,7 @@
 }
 
 .profile-card span {
-  filter: drop-shadow(0 0 8px #211);
+  filter: drop-shadow(3px 3px 2px #000);
 }
 
 .profile-buttons {

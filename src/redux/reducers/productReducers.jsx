@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-// ЗАПРОС ВСЕХ ТОВАРОВ (GET)
+// GET ALL PRODUCTS (GET)
 export const productList = createSlice({
   name: 'productList',
   initialState: {
@@ -31,7 +31,7 @@ export const productList = createSlice({
   },
 });
 
-// ЗАПРОС ТОВАРА ПО ID (GET)
+// GET PRODUCT BY ID (GET)
 export const productItem = createSlice({
   name: 'productItem',
   initialState: {
@@ -57,7 +57,7 @@ export const productItem = createSlice({
   },
 });
 
-// USER ДОБАВЛЕНИЕ НОВОГО ОТЗЫВА ПО ID ТОВАРА (POST)
+// ADD REVIEW BY PRODUCT ID (POST)
 export const productReview = createSlice({
   name: 'productReview',
   initialState: {
@@ -83,7 +83,7 @@ export const productReview = createSlice({
   },
 });
 
-// ADMIN ДОБАВЛЕНИЕ ТОВАРА (POST)
+// ADD PRODUCT (POST)
 export const productCreate = createSlice({
   name: 'productCreate',
   initialState: {
@@ -109,7 +109,7 @@ export const productCreate = createSlice({
   },
 });
 
-// ADMIN ОБНОВЛЕНИЕ ТОВАРА ПО ID (PUT)
+// UPDATE PRODUCT BY ID (PUT)
 export const productUpdate = createSlice({
   name: 'productUpdate',
   initialState: {
@@ -135,7 +135,7 @@ export const productUpdate = createSlice({
   },
 });
 
-// ADMIN УДАЛЕНИЕ ТОВАРА ПО ID (DELETE)
+// DELETE PRODUCT BY ID (DELETE)
 export const productDelete = createSlice({
   name: 'productDelete',
   initialState: {

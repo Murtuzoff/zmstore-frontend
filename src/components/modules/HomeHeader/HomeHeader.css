@@ -11,11 +11,11 @@
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: inherit;
   max-width: inherit;
   height: inherit;
-  color: #fea;
+  color: #ebdccb;
 }
 
 .home-header-logo {
@@ -25,11 +25,25 @@
   justify-content: center;
 }
 
-.home-header-logo.left svg {
-  fill: #fea;
+.home-header-logo.left {
+  min-width: 400px;
+}
+
+.main-logo {
+  filter: drop-shadow(3px 3px 2px #000);
+}
+
+.additional-logo {
+  width: 536px;
+  height: 180px;
+  filter: drop-shadow(5px 5px 5px #000);
 }
 
 @media (width < 677px) {
+  .home-header-container {
+    justify-content: center;
+  }
+
   .home-header-logo.right {
     display: none;
   }

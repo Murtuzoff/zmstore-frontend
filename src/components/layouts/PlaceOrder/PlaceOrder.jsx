@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import {
   orderCreateAction,
@@ -18,6 +19,8 @@ import OrderTotal from '../../modules/OrderTotal/OrderTotal';
 import './PlaceOrder.css';
 
 const PlaceOrder = () => {
+  const { t } = useTranslation();
+
   const { userInfo } = useSelector((state) => state.userLogin);
 
   if (!userInfo) {
@@ -39,7 +42,7 @@ const PlaceOrder = () => {
       .reduce((acc, product) => acc + product.quantity * product.price, 0)
       .toFixed(2),
   );
-  const shippingPrice = itemsPrice === 0 || itemsPrice > 2000 ? 0 : 300;
+  const shippingPrice = itemsPrice === 0 || itemsPrice > 30 ? 0 : 5;
   const totalPrice = itemsPrice + shippingPrice;
 
   const dispatch = useDispatch();
@@ -71,11 +74,13 @@ const PlaceOrder = () => {
 
       {cartContents.cartItems.length === 0 ? (
         <>
-          {!loading && !error && (
-            <MessageSuccess message="Ваша корзина пуста" />
-          )}
+          {!loading && !error && <MessageSuccess message={t('cartIsEmpty')} />}
           <Link to="/">
-            <WoodenButton width="300px" maxWidth="100%" label="ЗА ПОКУПКАМИ" />
+            <WoodenButton
+              width="300px"
+              maxWidth="100%"
+              label={t('goShopping')}
+            />
           </Link>
         </>
       ) : (

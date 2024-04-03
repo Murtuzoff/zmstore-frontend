@@ -14,7 +14,7 @@ const cartContents = createSlice({
         state.error = null;
       })
 
-      // ДОБАВИТЬ ТОВАР В КОРЗИНУ
+      // ADD TO CART
       .addCase('cart/contents/add', (state, action) => {
         const newProduct = action.payload;
 
@@ -33,7 +33,7 @@ const cartContents = createSlice({
         state.error = null;
       })
 
-      // УДАЛИТЬ ТОВАР ИЗ КОРЗИНЫ
+      // REMOVE FROM CART
       .addCase('cart/contents/remove', (state, action) => {
         state.cartItems = state.cartItems.filter(
           (product) => product._id !== action.payload,
@@ -42,21 +42,21 @@ const cartContents = createSlice({
         state.error = null;
       })
 
-      // АДРЕС ДОСТАВКИ ТОВАРА
+      // DELIVERY ADDRESS
       .addCase('cart/contents/shipping', (state, action) => {
         state.shippingAddress = action.payload;
         state.loading = false;
         state.error = null;
       })
 
-      // СПОСОБ ОПЛАТЫ ТОВАРА
+      // PAYMENT METHOD
       .addCase('cart/contents/payment', (state, action) => {
         state.paymentMethod = action.payload;
         state.loading = false;
         state.error = null;
       })
 
-      // ОЧИСТИТЬ КОРЗИНУ
+      // CLEAR CART
       .addCase('cart/contents/reset', (state) => {
         state.cartItems = [];
         // state.shippingAddress = {};

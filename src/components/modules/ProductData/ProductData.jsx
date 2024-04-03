@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import ProductImage from '../../common/Images/ProductImage';
 import RatingStars from '../RatingStars/RatingStars';
@@ -10,6 +11,8 @@ import Reviews from '../../common/Reviews/Reviews';
 import './ProductData.css';
 
 const ProductData = () => {
+  const { t } = useTranslation();
+
   const userLogin = useSelector((state) => state.userLogin);
 
   const { productInfo } = useSelector((state) => state.productItem);
@@ -38,24 +41,24 @@ const ProductData = () => {
           <tbody>
             <tr>
               <td className="td-left">
-                <span>Цена:</span>
+                <span>{t('price')}:</span>
               </td>
 
               <td className="td-right">
-                <span>{productInfo.price}</span> <span>₽</span> &nbsp;
+                <span>{productInfo.price}</span> <span>$</span> &nbsp;
               </td>
             </tr>
 
             <tr>
               <td className="td-left">
-                <span>Статус:</span>
+                <span>{t('status')}:</span>
               </td>
 
               <td className="td-right">
                 {productInfo.countInStock > 0 ? (
-                  <span>Есть в наличии</span>
+                  <span>{t('inStock')}</span>
                 ) : (
-                  <span>Нет в наличии</span>
+                  <span>{t('outOfStock')}</span>
                 )}
               </td>
             </tr>
@@ -66,13 +69,14 @@ const ProductData = () => {
                   productInfo.countInStock > 0 ? 'td-left' : 'td-left td-last'
                 }
               >
-                <span>Отзывы:</span>
+                <span>{t('reviews')}:</span>
               </td>
 
               <td
                 className={
                   productInfo.countInStock > 0 ? 'td-right' : 'td-right td-last'
                 }
+                aria-label="Rating"
               >
                 <RatingStars rating={productInfo.rating} />
                 <br />
@@ -83,7 +87,7 @@ const ProductData = () => {
             {productInfo.countInStock > 0 && (
               <tr>
                 <td className="td-left td-last">
-                  <span>Количество:</span>
+                  <span>{t('quantity')}:</span>
                 </td>
 
                 <td className="td-right td-last">
@@ -115,12 +119,12 @@ const ProductData = () => {
           <>
             <WoodenButton
               width="inherit"
-              label="ДОБАВИТЬ В КОРЗИНУ"
+              label={t('addToCart')}
               onClick={addToCartHandler}
             />
             {userLogin?.userInfo?.isAdmin && (
               <Link to={`/product/${params.id}/update`}>
-                <WoodenButton width="inherit" label="РЕДАКТИРОВАТЬ ТОВАР" />
+                <WoodenButton width="inherit" label={t('editProduct')} />
               </Link>
             )}
           </>
